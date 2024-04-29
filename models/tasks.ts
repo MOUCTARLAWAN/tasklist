@@ -16,6 +16,6 @@ const taskSchema = new Schema<ITask>({
 
 
 // Creer un model mongoose base sur TaskSchema pour representer les taches. 
-const Task = models.task || model<ITask>('Task', taskSchema)
+const Task = models.Task || model<ITask>('Task', taskSchema)
 
 export default Task;

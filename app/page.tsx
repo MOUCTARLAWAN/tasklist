@@ -15,7 +15,7 @@ export default function Home() {
     setIsLoading(true)
     try {
       const response = await fetch("api/task/new", {
-        method: 'post',
+        method: 'POST',
         body: JSON.stringify({
           task:task
         })
