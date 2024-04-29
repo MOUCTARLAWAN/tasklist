@@ -8,8 +8,28 @@ export default function Home() {
 
   const [task, setTask] = useState("")
 
-  const handleCreateTask = async() => {
+  //Loading qui va tourner lorsqu'on est entrain de charger les donnees.
+  const [isLoading, setIsLoading] = useState(true)
 
+  const handleCreateTask = async() => {
+    setIsLoading(true)
+    try {
+      const response = await fetch("api/task/new", {
+        method: 'post',
+        body: JSON.stringify({
+          task:task
+        })
+      })
+      if(response.ok) {
+        setTask('')
+      }
+      else {
+        console.log('Error')
+      }
+    }catch(error){
+      console.log(error)
+    }
+    setIsLoading(false)
   }
 
   return (
